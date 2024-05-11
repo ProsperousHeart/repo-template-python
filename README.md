@@ -18,7 +18,7 @@ These instructions will provide a copy of the project & get you running on your 
 
 See [deployment](#deployment) section on how to deploy a project as a live system.
 
-## Preerquisites
+## Pre-requisites
 
 What you need in order to run this project & where to go / how to install them.
 
