@@ -15,6 +15,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 TBD
 
+
+## [1.2.0] - 2025-06-11
+
+### Added
+
+- CONTRIBUTING file
+
+
 ## [1.1.0] - 2024-05-10
 
 ### Added
