@@ -1,13 +1,15 @@
 # Name of Your Project
+
 An introduction paragraph must contain a brief fescription of the project. If there are acronymns, create a section with a [table](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/organizing-information-with-tables) for this so they can be spelled out correctly.
 
 ## Acronymns
 
-| Acronymn | spelled out | description as needed |
-| :---: | :--- | ---: |
-| `CC` | Content Cell | a place in the table |
+| Acronymn | spelled out  | description as needed |
+| :------: | :----------- | --------------------: |
+|   `CC`   | Content Cell |  a place in the table |
 
 Your introduction should also include:
+
 - 1-1 sentences describing the problem to solve
 - audience / end user the solution is for
 - how to run
@@ -40,6 +42,8 @@ This was originally written in INSERT_VERSION of python.
 
 ## Linting
 
+### Manual
+
 If you are able to use Make, you can run eah command independently or combine them:
 
 ```
@@ -71,6 +75,7 @@ black src/ test/
 ![Example of running black](/IMGs/Examples/example-black.png)
 
 **TO NOTE:**
+
 - Black is an uncompromising Python code formatter.
 - It reformats your code to be consistent and readable.
 - It is opinionated: you don’t configure much, just run it and it formats your code.
@@ -78,9 +83,28 @@ black src/ test/
 
 `make test` runs all test and shows detailed output.
 
+### Pre Commit Check
+
+A `.pre-commit-config.yaml` file has been created in project root. (Learn more about this [here](https://pre-commit.com/).) This will enable you to use pre-commit for black and flake8 checks before each commit, but it will not automatically update your code—only check and block commits if issues are found.
+
+To set it up:
+
+1. Add `pre-commit` to your requirements file (DEV not PROD)
+
+2. Ensure the YAML file is in the right place at the project root
+
+3. Run the following in your expected virtual environment:
+
+    ```
+    pip install pre-commit
+    pre-commit install
+    ```
+
+This will set up the hooks for your local git repository.
+
 ## Testing
 
-## Locally
+### Locally
 
 To run a test file, from the main folder run a line similar to the following:
 
@@ -94,26 +118,26 @@ If you would like to run a specific test, follow a syntax similar to:
 pytest test/test_tmp.py -k test_print_hi -s -v
 ```
 
-## GitHub Actions
+### GitHub Actions
 
 The following section is care of GitHub Copilot.
 
 The CI file (.github/workflows/ci.yml) is a GitHub Actions workflow that automates code quality checks and testing for your repository. Here’s what it does:
 
 1. Triggers:
-    - Runs on every push or pull request to the main branch.
+   - Runs on every push or pull request to the main branch.
 2. Environment:
-    - Uses the latest Ubuntu runner provided by GitHub.
+   - Uses the latest Ubuntu runner provided by GitHub.
 3. Steps:
-    - **Checkout code:** Downloads your repository code to the runner.
-    - **Set up Python:** Installs Python 3.12.
-    - **Install dependencies:**
-        - Upgrades pip.
-        - Installs all packages listed in requirements.txt.
-        - Installs `flake8`, `black`, and `pytest` (in case they’re not in requirements.txt).
-    - **Lint:** Runs make lint to check your code for style and programming errors using flake8.
-    - **Format Check:** Runs `black --check src/ test/` to ensure your code is formatted according to Black’s standards (but does not reformat).
-    - **Test:** Runs make test to execute all your tests and show detailed output.
+   - **Checkout code:** Downloads your repository code to the runner.
+   - **Set up Python:** Installs Python 3.12.
+   - **Install dependencies:**
+     - Upgrades pip.
+     - Installs all packages listed in requirements.txt.
+     - Installs `flake8`, `black`, and `pytest` (in case they’re not in requirements.txt).
+   - **Lint:** Runs make lint to check your code for style and programming errors using flake8.
+   - **Format Check:** Runs `black --check src/ test/` to ensure your code is formatted according to Black’s standards (but does not reformat).
+   - **Test:** Runs make test to execute all your tests and show detailed output.
 
 **Summary:**
 This workflow ensures that every code change is automatically checked for style, formatting, and correctness before being merged, helping maintain code quality and consistency in your project.

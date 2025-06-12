@@ -28,6 +28,7 @@ TBD
 - images of examples when running linters
 - flake8 config file
 - make file
+- pre-commit file
 
 ### Updated
 
@@ -36,6 +37,7 @@ TBD
 - README to include section on linting
 - src and test code files to give example of working test with code
 - README on flake8 config
+- README on pre-commit setup
 
 
 ## [1.1.0] - 2024-05-10
