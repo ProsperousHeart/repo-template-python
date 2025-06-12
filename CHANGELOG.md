@@ -21,6 +21,23 @@ TBD
 ### Added
 
 - CONTRIBUTING file
+- codeql YAML worklflow file
+- security YAML worklflow file
+- requiements file (for DEV and PROD)
+- folder structure for future code, including src & test folders & placeholder python files
+- images of examples when running linters
+- flake8 config file
+- make file
+- pre-commit file
+
+### Updated
+
+- README to indicate the workflows added
+- README to include info on requirements file & running code/tests
+- README to include section on linting
+- src and test code files to give example of working test with code
+- README on flake8 config
+- README on pre-commit setup
 
 
 ## [1.1.0] - 2024-05-10
