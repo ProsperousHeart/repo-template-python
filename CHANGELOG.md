@@ -26,6 +26,7 @@ TBD
 - requiements file
 - folder structure for future code, including src & test folders & placeholder python files
 - images of examples when running linters
+- flake8 config file
 
 ### Updated
 
@@ -33,6 +34,7 @@ TBD
 - README to include info on requirements file & running code/tests
 - README to include section on linting
 - src and test code files to give example of working test with code
+- README on flake8 config
 
 
 ## [1.1.0] - 2024-05-10

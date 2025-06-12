@@ -52,7 +52,7 @@ make lint && make format && make test
 flake8 src/ test/
 ```
 
-This will tell you what the issues are.
+This will tell you what the issues are. More on configuring flake8 [here](https://flake8.pycqa.org/en/latest/user/configuration.html).
 
 ![Example of running flake8](/IMGs/Examples/example-flake8.png)
 
