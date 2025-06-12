@@ -21,6 +21,7 @@ TBD
 ### Added
 
 - CONTRIBUTING file
+- codeql YAML file 
 
 ### Updated
 
