@@ -38,6 +38,46 @@ Step by step explanation on how to get a development ENV running.
 
 This was originally written in INSERT_VERSION of python.
 
+## Linting
+
+If you are able to use Make, you can run eah command independently or combine them:
+
+```
+make lint && make format && make test
+```
+
+`make lint` checks code for style & programming errors ... If this is not an option, you can run:
+
+```python
+flake8 src/ test/
+```
+
+This will tell you what the issues are.
+
+![Example of running flake8](/IMGs/Examples/example-flake8.png)
+
+To check if your code is already formatted (without making changes), run:
+
+```python
+black --check src/ test/
+```
+
+`make format` automatically formats your code to follow Black style guide. If that is not available, you can run:
+
+```python
+black src/ test/
+```
+
+![Example of running black](/IMGs/Examples/example-black.png)
+
+**TO NOTE:**
+- Black is an uncompromising Python code formatter.
+- It reformats your code to be consistent and readable.
+- It is opinionated: you don’t configure much, just run it and it formats your code.
+- It helps avoid style debates and keeps codebases consistent.
+
+`make test` runs all test and shows detailed output.
+
 ## Testing
 
 To run a test file, from the main folder run a line similar to the following:
