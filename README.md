@@ -28,11 +28,23 @@ Note that there are GitHub actions to support improved static code reviews, such
 
 What you need in order to run this project & where to go / how to install them.
 
+Please be sure to leverage the `requirements.txt` file.
+
 # How To For ...
 
 ## Installing
 
 Step by step explanation on how to get a development ENV running.
+
+This was originally written in INSERT_VERSION of python.
+
+## Testing
+
+To run a test file, from the main folder run a line similar to the following:
+
+```python
+pytest test/test_tmp.py -s -V
+```
 
 ## Deployment
 
@@ -43,6 +55,12 @@ Information on how to deploy to a live system.
 How to use this solution.
 
 If additional documentation is stored elsewhere, it will be noted here.
+
+This template repo would say that in the main folder of this project in a CLI, run the following:
+
+```python
+python -m src.tmp.py
+```
 
 # Support Information
 

@@ -29,6 +29,7 @@ TBD
 ### Updated
 
 - README to indicate the workflows added
+- README to include info on requirements file & running code/tests
 
 
 ## [1.1.0] - 2024-05-10
