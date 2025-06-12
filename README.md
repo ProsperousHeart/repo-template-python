@@ -80,6 +80,8 @@ black src/ test/
 
 ## Testing
 
+## Locally
+
 To run a test file, from the main folder run a line similar to the following:
 
 ```python
@@ -91,6 +93,30 @@ If you would like to run a specific test, follow a syntax similar to:
 ```python
 pytest test/test_tmp.py -k test_print_hi -s -v
 ```
+
+## GitHub Actions
+
+The following section is care of GitHub Copilot.
+
+The CI file (.github/workflows/ci.yml) is a GitHub Actions workflow that automates code quality checks and testing for your repository. Here’s what it does:
+
+1. Triggers:
+    - Runs on every push or pull request to the main branch.
+2. Environment:
+    - Uses the latest Ubuntu runner provided by GitHub.
+3. Steps:
+    - **Checkout code:** Downloads your repository code to the runner.
+    - **Set up Python:** Installs Python 3.12.
+    - **Install dependencies:**
+        - Upgrades pip.
+        - Installs all packages listed in requirements.txt.
+        - Installs `flake8`, `black`, and `pytest` (in case they’re not in requirements.txt).
+    - **Lint:** Runs make lint to check your code for style and programming errors using flake8.
+    - **Format Check:** Runs `black --check src/ test/` to ensure your code is formatted according to Black’s standards (but does not reformat).
+    - **Test:** Runs make test to execute all your tests and show detailed output.
+
+**Summary:**
+This workflow ensures that every code change is automatically checked for style, formatting, and correctness before being merged, helping maintain code quality and consistency in your project.
 
 ## Deployment
 
