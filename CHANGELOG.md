@@ -23,7 +23,7 @@ TBD
 - CONTRIBUTING file
 - codeql YAML worklflow file
 - security YAML worklflow file
-- requiements file
+- requiements file (for DEV and PROD)
 - folder structure for future code, including src & test folders & placeholder python files
 - images of examples when running linters
 - flake8 config file
