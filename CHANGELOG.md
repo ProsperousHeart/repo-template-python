@@ -23,6 +23,7 @@ TBD
 - CONTRIBUTING file
 - codeql YAML worklflow file
 - security YAML worklflow file
+- requiements file
 
 ### Updated
 
