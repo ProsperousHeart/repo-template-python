@@ -21,7 +21,8 @@ TBD
 ### Added
 
 - CONTRIBUTING file
-- codeql YAML file 
+- codeql YAML worklflow file
+- security YAML worklflow file
 
 ### Updated
 
