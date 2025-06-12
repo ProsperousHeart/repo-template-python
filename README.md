@@ -46,6 +46,12 @@ To run a test file, from the main folder run a line similar to the following:
 pytest test/test_tmp.py -s -v
 ```
 
+If you would like to run a specific test, follow a syntax similar to:
+
+```python
+pytest test/test_tmp.py -k test_print_hi -s -v
+```
+
 ## Deployment
 
 Information on how to deploy to a live system.
