@@ -43,7 +43,7 @@ This was originally written in INSERT_VERSION of python.
 To run a test file, from the main folder run a line similar to the following:
 
 ```python
-pytest test/test_tmp.py -s -V
+pytest test/test_tmp.py -s -v
 ```
 
 ## Deployment
