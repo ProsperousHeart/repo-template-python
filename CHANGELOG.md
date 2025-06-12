@@ -24,6 +24,7 @@ TBD
 - codeql YAML worklflow file
 - security YAML worklflow file
 - requiements file
+- folder structure for future code, including src & test folders & placeholder python files
 
 ### Updated
 
