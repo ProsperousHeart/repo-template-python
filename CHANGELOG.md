@@ -32,6 +32,7 @@ TBD
 - README to indicate the workflows added
 - README to include info on requirements file & running code/tests
 - README to include section on linting
+- src and test code files to give example of working test with code
 
 
 ## [1.1.0] - 2024-05-10
