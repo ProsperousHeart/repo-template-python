@@ -18,6 +18,7 @@ Note:
     - See Python logging documentation for more details.
 """
 import logging
+from logging.handlers import RotatingFileHandler
 import os
 from datetime import date
 from typing import Optional
@@ -80,8 +81,11 @@ def create_logger(file_name: str="Test_File",
 
     # Prevent duplicate handlers
     if not logger.handlers:
-        # File handler
-        file_handler = logging.FileHandler(log_path, mode=file_mode, encoding="utf-8")
+        # File handler - max 5 files of 1MB each
+        # file_handler = logging.FileHandler(log_path, mode=file_mode, encoding="utf-8")
+        file_handler = RotatingFileHandler(
+            log_path, mode=file_mode, maxBytes=1024*1024, backupCount=5, encoding="utf-8"
+            )
         file_handler.setLevel(file_lvl)
         file_format = logging.Formatter(
             "%(asctime)s %(filename)-15s %(funcName)-18s %(levelname)-8s %(message)s",

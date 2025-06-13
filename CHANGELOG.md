@@ -28,6 +28,7 @@ TBD
 - added `__init__.py` for utils folder
 - added logging and docstrings to test file
 - add logging to main file
+- added log file size and number limitation through filehandler rotation
 
 
 ## [1.2.0] - 2025-06-11
