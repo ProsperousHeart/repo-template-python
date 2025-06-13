@@ -1,7 +1,21 @@
+"""
+Unit tests for the tmp module.
+
+This test suite verifies the behavior of functions in src/tmp.py, including:
+- Logging with a test-specific logger to ensure test logs do not interfere with
+    production logs.
+- Functionality of str_func and print_hi, including correct output and error handling.
+- Use of logger-injecting decorator factories for flexible and isolated logging
+    during tests.
+
+Tested with unittest and compatible with pytest.
+"""
+
 # import pytest
 import unittest
 from unittest.mock import patch
 from io import StringIO
+
 # from src.tmp import print_hi, str_func
 from src.utils.logger import create_logger, func_wrapper
 
@@ -24,11 +38,16 @@ class TestTmp(unittest.TestCase):
         # # self.logger = create_logger(file_name="Test_File_Test", file_mode="w")
         # # src.tmp.logger = self.logger  # Patch the module-level logger in src.tmp
         # # # pass
-        # self.func_wrapper = func_wrapper(test_logger)(src.tmp.func_wrapper.__wrapped__)
+        # self.func_wrapper=func_wrapper(test_logger)(src.tmp.func_wrapper.__wrapped__)
         # Decorate the undecorated functions with the test logger for isolated logging
         import src.tmp
-        self.decorated_print_hi = func_wrapper(test_logger)(src.tmp.print_hi.__wrapped__)
-        self.decorated_str_func = func_wrapper(test_logger)(src.tmp.str_func.__wrapped__)
+
+        self.decorated_print_hi = func_wrapper(test_logger)(
+            src.tmp.print_hi.__wrapped__
+        )
+        self.decorated_str_func = func_wrapper(test_logger)(
+            src.tmp.str_func.__wrapped__
+        )
 
     def tearDown(self):
         # return super().tearDown()

@@ -2,10 +2,12 @@
 Custom logger utility for the repo-template-python project.
 
 This module provides:
-- A create_logger function to configure and return a logger with both file and console handlers,
-  each with customizable formats and logging levels.
-- Decorators (func_wrapper, sol_wrapper) for automatic logging of function and solution execution.
-- Security best practices: avoids logging sensitive data and uses safe string formatting.
+- A create_logger function to configure and return a logger with both file and
+    console handlers, each with customizable formats and logging levels.
+- Decorators (func_wrapper, sol_wrapper) for automatic logging of function and
+    solution execution.
+- Security best practices: avoids logging sensitive data and uses safe string
+    formatting.
 
 Usage:
     from utils.logger import create_logger
@@ -17,6 +19,7 @@ Note:
     - Do not log sensitive information (passwords, tokens, PII).
     - See Python logging documentation for more details.
 """
+
 import logging
 from logging.handlers import RotatingFileHandler
 import os
@@ -25,6 +28,7 @@ from typing import Optional
 import functools
 
 import pprint
+
 pp = pprint.PrettyPrinter(indent=4)
 
 today = date.today()
@@ -34,13 +38,16 @@ today = date.today()
 # could be used when considering creation of a class instead of a function
 # ===========================================================================
 
+
 # logging levels:  https://docs.python.org/3/library/logging.html#logging-levels
-def create_logger(file_name: str="Test_File",
-                  file_mode: str="a",
-                  file_lvl: int=logging.DEBUG,
-                  console_lvl: int=logging.WARNING,
-                  # log_loc:str=f"{os.getcwd()}/logs") -> logging.Logger:
-                  log_loc: Optional[str]=None) -> logging.Logger:
+def create_logger(
+    file_name: str = "Test_File",
+    file_mode: str = "a",
+    file_lvl: int = logging.DEBUG,
+    console_lvl: int = logging.WARNING,
+    # log_loc:str=f"{os.getcwd()}/logs") -> logging.Logger:
+    log_loc: Optional[str] = None,
+) -> logging.Logger:
     """
     Takes in the following:
         file_name       STR name of file to write to
@@ -48,10 +55,10 @@ def create_logger(file_name: str="Test_File",
         file_lvl        INT must tie in to logging level INTs (else raise error)
         console_level   INT must tie in to logging level INTs (else raise error)
         log_loc         STR by default will use local script's folder/logs
-    
+
     With provided inputs, creates & returns a logger object
     with specific formatting for file and console needs.
-    
+
     Returns:
         Logger: Configured logger instance.
 
@@ -72,7 +79,7 @@ def create_logger(file_name: str="Test_File",
     # https://docs.python.org/3.12/howto/logging-cookbook.html#logging-to-multiple-destinations
     # =======================================================================
 
-    logger = logging.getLogger(__name__)    # root logger from main script
+    logger = logging.getLogger(__name__)  # root logger from main script
     logger.setLevel(logging.DEBUG)
     logger.propagate = False
 
@@ -84,12 +91,16 @@ def create_logger(file_name: str="Test_File",
         # File handler - max 5 files of 1MB each
         # file_handler = logging.FileHandler(log_path, mode=file_mode, encoding="utf-8")
         file_handler = RotatingFileHandler(
-            log_path, mode=file_mode, maxBytes=1024*1024, backupCount=5, encoding="utf-8"
-            )
+            log_path,
+            mode=file_mode,
+            maxBytes=1024 * 1024,
+            backupCount=5,
+            encoding="utf-8",
+        )
         file_handler.setLevel(file_lvl)
         file_format = logging.Formatter(
             "%(asctime)s %(filename)-15s %(funcName)-18s %(levelname)-8s %(message)s",
-            datefmt="%Y-%m-%d %H:%M:%S"
+            datefmt="%Y-%m-%d %H:%M:%S",
         )
         file_handler.setFormatter(file_format)
         logger.addHandler(file_handler)
@@ -99,13 +110,12 @@ def create_logger(file_name: str="Test_File",
         console_handler.setLevel(console_lvl)
         console_format = logging.Formatter(
             "%(name)-12s line %(lineno)-s %(levelname)-8s | %(message)s",
-            datefmt="%Y-%m-%d %H:%M:%S"
+            datefmt="%Y-%m-%d %H:%M:%S",
         )
         console_handler.setFormatter(console_format)
         logger.addHandler(console_handler)
 
     return logger
-
 
 
 # def func_wrapper(func):
@@ -129,22 +139,27 @@ def create_logger(file_name: str="Test_File",
 #             logger.debug(f"Ending {func.__qualname__} from module:\t{func.__module__}")
 #     return log_func_wrapper
 
+
 def func_wrapper(logger):
     """
     Wrapper function to provide start and end logging
     when running functions without interfering with
     other arguments or returned data.
     """
+
     def decorator(func):
         """
         Decorator to wrap a function with logging functionality.
         It logs the start and end of the function execution,
         and handles exceptions by logging them as critical errors.
         """
+
         @functools.wraps(func)
         def log_func_wrapper(*args, **kwargs):
             # logger = [arg for arg in args if isinstance(arg, logging.Logger)][0]
-            logger.debug(f"Starting {func.__qualname__} from module:\t{func.__module__}")
+            logger.debug(
+                f"Starting {func.__qualname__} from module:\t{func.__module__}"
+            )
             try:
                 rtn_data = func(*args, **kwargs)
             except Exception as err:
@@ -153,8 +168,12 @@ def func_wrapper(logger):
             else:
                 return rtn_data
             finally:
-                logger.debug(f"Ending {func.__qualname__} from module:\t{func.__module__}")
+                logger.debug(
+                    f"Ending {func.__qualname__} from module:\t{func.__module__}"
+                )
+
         return log_func_wrapper
+
     return decorator
 
 
@@ -192,17 +211,20 @@ def func_wrapper(logger):
 #             logger.debug(f'{"="*3} Ending of Logs {"="*3}')
 #     return log_func_wrapper
 
+
 def sol_wrapper(logger):
     """
     Wrapper function to provide start and end logging
     for entire solution - meant to only run ONCE.
     """
+
     def decorator(func):
         """
         Decorator to wrap a function with logging functionality.
         It logs the start and end of the function execution,
         and handles exceptions by logging them as critical errors.
         """
+
         @functools.wraps(func)
         def log_func_wrapper(*args, **kwargs):
             """
@@ -222,13 +244,20 @@ def sol_wrapper(logger):
                 #             for item in logger.__dict__['parent'].__dict__['handlers']
                 #             if item.__class__.__name__ == "FileHandler"])
                 # }""")
-                file_names = [h.baseFilename for h in logger.handlers
-                            if isinstance(h, logging.FileHandler)]
-                logger.critical(f"There's been an ERROR! Check your logs: {', '.join(file_names)}")
+                file_names = [
+                    h.baseFilename
+                    for h in logger.handlers
+                    if isinstance(h, logging.FileHandler)
+                ]
+                logger.critical(
+                    f"There's been an ERROR! Check your logs: {', '.join(file_names)}"
+                )
                 logger.debug(pprint.pformat(err))
             else:
                 return rtn_data
             finally:
                 logger.debug(f'{"="*3} Ending of Logs {"="*3}')
+
         return log_func_wrapper
+
     return decorator

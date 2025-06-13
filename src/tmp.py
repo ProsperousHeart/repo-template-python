@@ -17,11 +17,13 @@ Usage:
     Run directly for production logging, or import and redecorate in tests for
     test log isolation.
 """
+
 from src.utils.logger import create_logger, func_wrapper, sol_wrapper
 
 
 # even in W mode it appends because of the RotatingFileHandler
 log_obj = create_logger(file_name="Template_Repo", file_mode="w")
+
 
 @func_wrapper(log_obj)
 # @func_wrapper
@@ -50,6 +52,7 @@ def print_hi():
     """Prints 'Hi' and logs the call."""
     log_obj.info("print_hi called.")
     print("Hi")
+
 
 @sol_wrapper(log_obj)
 # @sol_wrapper
