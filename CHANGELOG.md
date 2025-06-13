@@ -15,12 +15,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 TBD
 
-
 ## [1.3.0] - 2025-06-12
 
 ### Added
 
 - logging utility script
+- README to utility folder to show original code (removing from logger file)
 
 ### Updated
 
@@ -31,7 +31,6 @@ TBD
 - added log file size and number limitation through filehandler rotation
 - instead of passing the logger between functions, brought it out
 - to make testing work, moved logger into the decorator argument & updated logging utility
-
 
 ## [1.2.0] - 2025-06-11
 
@@ -55,7 +54,6 @@ TBD
 - src and test code files to give example of working test with code
 - README on flake8 config
 - README on pre-commit setup
-
 
 ## [1.1.0] - 2024-05-10
 
