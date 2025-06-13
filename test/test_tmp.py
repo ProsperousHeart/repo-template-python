@@ -2,9 +2,12 @@
 import unittest
 from unittest.mock import patch
 from io import StringIO
-from src.tmp import print_hi, str_func
-from src.utils.logger import create_logger
+# from src.tmp import print_hi, str_func
+from src.utils.logger import create_logger, func_wrapper
 
+
+test_logger = create_logger(file_name="Test_File_Test", file_mode="w")
+# src.tmp.my_function = func_wrapper(test_logger)(src.tmp.func_wrapper.__wrapped__)
 
 # def test_print_hi(capsys):
 #     print_hi()
@@ -17,8 +20,15 @@ class TestTmp(unittest.TestCase):
 
     def setUp(self):
         """Set up the test environment."""
-        # return super().setUp()
-        self.logger = create_logger(file_name="Test_File_Test")
+        # # # return super().setUp()
+        # # self.logger = create_logger(file_name="Test_File_Test", file_mode="w")
+        # # src.tmp.logger = self.logger  # Patch the module-level logger in src.tmp
+        # # # pass
+        # self.func_wrapper = func_wrapper(test_logger)(src.tmp.func_wrapper.__wrapped__)
+        # Decorate the undecorated functions with the test logger for isolated logging
+        import src.tmp
+        self.decorated_print_hi = func_wrapper(test_logger)(src.tmp.print_hi.__wrapped__)
+        self.decorated_str_func = func_wrapper(test_logger)(src.tmp.str_func.__wrapped__)
 
     def tearDown(self):
         # return super().tearDown()
@@ -27,18 +37,24 @@ class TestTmp(unittest.TestCase):
     def test_print_hi(self):
         """Test print_hi function."""
         with patch("sys.stdout", new=StringIO()) as fake_out:
-            print_hi()
+            # print_hi()
+            # print_hi.__wrapped__()
+            self.decorated_print_hi()
             self.assertEqual(fake_out.getvalue(), "Hi\n")
 
     def test_str_func_valid(self):
         """Test str_func with a valid string input."""
-        resp = str_func("test")
+        # resp = str_func("test")
+        # resp = str_func.__wrapped__("test")
+        resp = self.decorated_str_func("test")
         self.assertEqual(resp, "You sent:  test")
 
     def test_str_func_none(self):
         """Test str_func with None input."""
         with self.assertRaises(TypeError):
-            str_func(None)
+            # str_func(None)
+            # str_func.__wrapped__(None)
+            self.decorated_str_func(None)
 
 
 if __name__ == "__main__":

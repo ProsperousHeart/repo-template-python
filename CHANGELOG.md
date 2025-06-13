@@ -29,6 +29,8 @@ TBD
 - added logging and docstrings to test file
 - add logging to main file
 - added log file size and number limitation through filehandler rotation
+- instead of passing the logger between functions, brought it out
+- to make testing work, moved logger into the decorator argument & updated logging utility
 
 
 ## [1.2.0] - 2025-06-11

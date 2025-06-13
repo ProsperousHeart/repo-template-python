@@ -1,8 +1,11 @@
-from src.utils.logger import create_logger, func_wrapper, sol_wrapper, logging
+from src.utils.logger import create_logger, func_wrapper, sol_wrapper
+import logging
 
 
+# even in W mode it appends because of the RotatingFileHandler
 log_obj = create_logger(file_name="Template_Repo", file_mode="w")
 
+@func_wrapper(log_obj)
 # @func_wrapper
 def str_func(input_str: str) -> str:
     """
@@ -23,11 +26,13 @@ def str_func(input_str: str) -> str:
     return f"You sent:  {input_str}"
 
 
+@func_wrapper(log_obj)
 # @func_wrapper
 def print_hi():
     log_obj.info("print_hi called.")
     print("Hi")
 
+@sol_wrapper(log_obj)
 # @sol_wrapper
 def main():
     """
