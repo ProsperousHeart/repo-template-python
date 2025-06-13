@@ -27,6 +27,7 @@ TBD
 - added logs folder to gitignore
 - added `__init__.py` for utils folder
 - added logging and docstrings to test file
+- add logging to main file
 
 
 ## [1.2.0] - 2025-06-11
