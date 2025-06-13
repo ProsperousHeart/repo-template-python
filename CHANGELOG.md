@@ -18,9 +18,14 @@ TBD
 
 ## [1.3.0] - 2025-06-12
 
+### Added
+
+- logging utility script
+
 ### Updated
 
 - added logs folder to gitignore
+- added `__init__.py` for utils folder
 
 
 ## [1.2.0] - 2025-06-11
