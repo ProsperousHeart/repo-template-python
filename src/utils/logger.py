@@ -128,7 +128,7 @@ def create_logger(file_name: str="Test_File",
 #         finally:
 #             logger.debug(f"Ending {func.__qualname__} from module:\t{func.__module__}")
 #     return log_func_wrapper
-    
+
 def func_wrapper(logger):
     """
     Wrapper function to provide start and end logging
@@ -184,14 +184,14 @@ def func_wrapper(logger):
 #             # }""")
 #             file_names = [h.baseFilename for h in logger.handlers
 #                         if isinstance(h, logging.FileHandler)]
-#             logger.critical(f"There has been an ERROR!!! Be sure to check your logs: {', '.join(file_names)}")
+#             logger.critical(f"There's been an ERROR!!! Check your logs: {', '.join(file_names)}")
 #             logger.debug(pprint.pformat(err))
 #         else:
 #             return rtn_data
 #         finally:
 #             logger.debug(f'{"="*3} Ending of Logs {"="*3}')
 #     return log_func_wrapper
-    
+
 def sol_wrapper(logger):
     """
     Wrapper function to provide start and end logging
@@ -224,7 +224,7 @@ def sol_wrapper(logger):
                 # }""")
                 file_names = [h.baseFilename for h in logger.handlers
                             if isinstance(h, logging.FileHandler)]
-                logger.critical(f"There has been an ERROR!!! Be sure to check your logs: {', '.join(file_names)}")
+                logger.critical(f"There's been an ERROR! Check your logs: {', '.join(file_names)}")
                 logger.debug(pprint.pformat(err))
             else:
                 return rtn_data
