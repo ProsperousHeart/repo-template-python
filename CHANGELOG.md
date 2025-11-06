@@ -20,6 +20,7 @@ TBD
 ### Added
 
 - CodeGuard rules for Copilot
+- generate Claude init file
 
 ## [1.3.0] - 2025-06-12
 
