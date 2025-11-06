@@ -57,7 +57,32 @@ When using AI coding assistants with this repository, CodeGuard rules are automa
 
 What you need in order to run this project & where to go / how to install them.
 
-Please be sure to leverage the `requirements.txt` file.
+### Python Environment
+
+This project uses `uv` and `uvx` for virtual environment and dependency management. See the [uvx setup guide](docs/uvx-setup-guide.md) for detailed installation and usage instructions.
+
+**Quick Start:**
+```bash
+# Install uv (includes uvx)
+# macOS/Linux:
+curl -LsSf https://astral.sh/uv/install.sh | sh
+
+# Windows:
+powershell -c "irm https://astral.sh/uv/install.ps1 | iex"
+
+# Create virtual environment
+uv venv
+
+# Activate environment
+source .venv/bin/activate  # macOS/Linux
+.venv\Scripts\activate     # Windows
+
+# Install dependencies
+uv add -r requirements.txt
+uv add --dev -r requirements-dev.txt
+```
+
+Please be sure to leverage the `requirements.txt` file for production dependencies and `requirements-dev.txt` for development tools.
 
 # How To For ...
 
