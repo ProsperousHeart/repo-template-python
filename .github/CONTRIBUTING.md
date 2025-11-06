@@ -52,6 +52,31 @@ A PR can only be merged into master by a maintainer if:
 - it is up to date with current master
 - it is clear what you are requesting
 
+# AI-Assisted Development
+
+This project uses [Project CodeGuard](https://project-codeguard.org/) to maintain security best practices when using AI coding assistants.
+
+## For Contributors Using AI Assistants
+
+If you're using Claude Code or other AI coding assistants:
+
+1. Ensure the CodeGuard plugin is installed and up to date:
+   ```bash
+   /plugin update codeguard-security@project-codeguard
+   ```
+
+2. CodeGuard will automatically provide security guidance during code generation across:
+   - Cryptography and key management
+   - Input validation (SQL injection, XSS, command injection)
+   - Authentication and authorization
+   - Supply chain security
+   - Cloud and platform security
+   - Data protection
+
+3. Review AI-generated code for security best practices before submitting your PR
+
+**Source:** https://github.com/project-codeguard/rules
+
 # Important Resources
 
 TBD

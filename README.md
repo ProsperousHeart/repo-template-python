@@ -26,6 +26,33 @@ See [deployment](#deployment) section on how to deploy a project as a live syste
 
 Note that there are GitHub actions to support improved static code reviews, such as `codeql` and security.
 
+## Security Framework
+
+This project uses the 20251029 dated version of [Project CodeGuard](https://project-codeguard.org/), an open-source security framework from Cisco that provides AI-assisted secure code generation.
+
+**Source:** https://github.com/project-codeguard/rules
+**Documentation:** https://project-codeguard.org/
+**License:** CC BY 4.0 (rules), Apache 2.0 (tools)
+
+### Keeping CodeGuard Updated
+
+If you're using Claude Code with this repository & installed globally per [here](https://project-codeguard.org/claude-code-skill-plugin/) via the plugin marketplace, you will keep the CodeGuard plugin updated by running the following in Claude console:
+
+```bash
+/plugin update codeguard-security@project-codeguard
+```
+
+As of 20251105, CodeGuard provides security guidance across 8 domains:
+
+- Cryptography and key management
+- Input validation (SQL injection, XSS, command injection)
+- Authentication and authorization
+- Supply chain security
+- Cloud and platform security
+- Data protection
+
+When using AI coding assistants with this repository, CodeGuard rules are automatically referenced to help generate more secure code.
+
 ## Pre-requisites
 
 What you need in order to run this project & where to go / how to install them.
@@ -95,10 +122,10 @@ To set it up:
 
 3. Run the following in your expected virtual environment:
 
-    ```
-    pip install pre-commit
-    pre-commit install
-    ```
+   ```
+   pip install pre-commit
+   pre-commit install
+   ```
 
 This will set up the hooks for your local git repository.
 
