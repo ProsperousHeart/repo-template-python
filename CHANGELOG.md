@@ -22,6 +22,8 @@ TBD
 - CodeGuard rules for Copilot
 - generate Claude init file
 - adding CodeGuard through Claude plugin marketplace
+- uv management information and setup files
+- templates and README for requirements and spec driven development needs
 
 ## [1.3.0] - 2025-06-12
 
