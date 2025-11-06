@@ -15,6 +15,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 TBD
 
+## [1.3.1] - 2025-11-05
+
+### Added
+
+- CodeGuard rules for Copilot
+
 ## [1.3.0] - 2025-06-12
 
 ### Added
