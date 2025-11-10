@@ -33,6 +33,7 @@ TBD
   - generate-code-from-spec.prompt.md
 - new instructions
   - threat-modeling.instructions.md
+  - test-planning.instructions.md
 
 ## [1.3.1] - 2025-11-05
 
