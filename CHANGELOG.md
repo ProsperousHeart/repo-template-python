@@ -29,14 +29,16 @@ TBD
   - error resolution KB
   - output format
 - new instructions
-  - quality=checklist.instructions.md
+  - quality-checklist.instructions.md
+  - architecture-diagrams.instructions.md
   - threat-modeling.instructions.md
   - test-planning.instructions.md
   - tdd-workflow.instructions.md
 - new prompts:
-  - generate-spec-from-requirement.prompt.md
-  - generate-code-from-spec.prompt.md
-  - create-threat-model.prompt.md
+  - generate-spec-from-requirement.prompts.md
+  - generate-code-from-spec.prompts.md
+  - create-architecture-diagram.prompts.md
+  - create-threat-model.prompts.md
 
 ## [1.3.1] - 2025-11-05
 
