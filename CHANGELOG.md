@@ -49,6 +49,7 @@ TBD
 - new Claude commands:
   - quality-review.md
 - added history of development files
+- added `INDEX.md` in `docs\` folder - central hub for simple navigation
 
 ### Updated
 
