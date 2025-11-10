@@ -43,6 +43,7 @@ TBD
   - create-threat-model.prompts.md
   - testcase.prompts.md
   - verify-implementation.prompt.md
+  - workflow-requirements-to-spec.prompts.md
 - new Claude commands:
   - quality-review.md
 
