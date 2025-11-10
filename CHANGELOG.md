@@ -40,6 +40,10 @@ TBD
   - create-architecture-diagram.prompts.md
   - create-threat-model.prompts.md
 
+### Updated
+
+- `logger.py` utils file with minor improvements
+
 ## [1.3.1] - 2025-11-05
 
 ### Added
