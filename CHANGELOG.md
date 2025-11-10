@@ -54,10 +54,12 @@ TBD
 - added `INDEX.md` in `docs\` folder - central hub for simple navigation
 - created `SPEC-CROSS-REFERENCE.md` in `docs\` folder that toes relationships between files together
 - add copilot and Claude setup environment instructions
+- Claude command README
 
 ### Updated
 
 - `logger.py` utils file with minor improvements
+- `CLAUDE.md` via running `init`
 
 ## [1.3.1] - 2025-11-05
 
