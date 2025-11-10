@@ -20,6 +20,7 @@ TBD
 ### Updates
 
 - Updated diagram formatting expectations and examples
+- minor prompt and isntruction updates for threat modeling and workflow-req-to-spec
 
 ## [1.4.1] - 2025-11-09
 

@@ -2,18 +2,30 @@
 
 **Last Updated**: 2025-11-09
 
-This document provides guidance for creating security threat models at the requirements stage of development.
+This document provides guidance for creating security threat models based on technical specifications.
 
 ## 🎯 Overview
 
-Threat modeling helps identify potential security vulnerabilities early in the development process, before code is written. This proactive approach is more cost-effective than fixing security issues after implementation.
+Threat modeling helps identify potential security vulnerabilities during the design phase, after specifications are complete but before code is written. This proactive approach is more cost-effective than fixing security issues after implementation.
+
+**CRITICAL**: Threat modeling must occur AFTER specifications are complete because you need to understand:
+- System architecture and components
+- Data flows and storage mechanisms
+- Integration points and APIs
+- Authentication and authorization approach
+- Technology stack and deployment model
 
 ## 📋 When to Create Threat Models
 
+Threat modeling occurs in Stage 4 of the development workflow (after specifications, before code).
+
 Create threat models:
 - **Per-Requirement**: For each individual requirement that involves security-sensitive operations
-- **High-Level Aggregate**: Combining ALL requirements into a system-wide threat model
-- **Grouped by Feature/Module**: For related requirements that form a cohesive feature
+- **Per-Specification**: For each individual specification that involves security-sensitive operations
+- **High-Level Aggregate**: Combining ALL specifications into a system-wide threat model
+- **Grouped by Feature/Module**: For related specifications that form a cohesive feature
+
+**Input Required**: Specification document and architecture diagrams
 
 ## 🔍 Threat Modeling Process
 

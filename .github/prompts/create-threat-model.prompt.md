@@ -1,8 +1,9 @@
 # Prompt: Create Threat Model
 
-**Purpose**: Generate security threat model for a requirement
-**Input**: Requirement document path, scope (per-requirement | aggregate | grouped)
+**Purpose**: Generate security threat model based on a specification
+**Input**: Specification document path, scope (per-req, per-spec | aggregate | grouped)
 **Output**: Threat model diagram in `docs/diagrams/`
+**Prerequisites**: Specification and architecture diagram must exist
 **References**:
 - `.github/instructions/threat-modeling.instructions.md`
 - Relevant CodeGuard instruction files
@@ -10,13 +11,17 @@
 ## Prompt
 
 ```
-Create a security threat model for the requirement at {requirement_path}.
+Create a security threat model for the specification at {specification_path}.
 
-Scope: {per-requirement | high-level-aggregate | grouped-by-feature}
+**IMPORTANT**: Threat modeling requires a completed specification and architecture diagram. Verify these exist before proceeding.
+
+Scope: {per-rec | per-spec | high-level-aggregate | grouped-by-feature}
 
 Instructions:
-1. Read the requirement document
-2. Follow threat modeling process in .github/instructions/threat-modeling.instructions.md
+0. Read the requirements document and if it is not found in {specification_path}, return an error indicating the file is missing. When the specification is made, it should include the requirements document it was designed from.
+1. Read the specification document at {specification_path}
+2. Read the architecture diagram at docs/diagrams/architecture_{name}.md
+3. Follow threat modeling process in .github/instructions/threat-modeling.instructions.md
 3. Apply STRIDE framework:
    - Spoofing
    - Tampering
@@ -45,13 +50,18 @@ Note: When updating existing threat models, create a new version file (threat-mo
 ### With Claude Code
 
 ```
-Use the create-threat-model prompt for docs/requirements/req-auth.md with scope per-requirement
+# Per Requirement
+Use the create-threat-model prompt for docs/requirements/req_plant-database.md with scope per-req
+
+# Per Specification
+Use the create-threat-model prompt for docs/specifications/spec_auth.md with scope per-spec
 ```
 
 ### With GitHub Copilot
 
 ```
-@workspace Create a threat model for @docs/requirements/req-auth.md following @.github/instructions/threat-modeling.instructions.md with STRIDE framework and Mermaid diagrams.
+# Per Specification
+@workspace Create a threat model for @docs/specifications/spec_auth.md (using the existing architecture diagram) following @.github/instructions/threat-modeling.instructions.md with STRIDE framework and Mermaid diagrams.
 ```
 
 ## Expected Output
