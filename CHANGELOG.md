@@ -34,6 +34,7 @@ TBD
 - new instructions
   - threat-modeling.instructions.md
   - test-planning.instructions.md
+  - tdd-workflow.instructions.md
 
 ## [1.3.1] - 2025-11-05
 
