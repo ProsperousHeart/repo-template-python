@@ -21,8 +21,11 @@ TBD
 
 - created instructions folder including but not limited to how ot use workflow items for Claude and copilot
 - general testing guidelines
-- docs folder README
-- diagrams folder README
+- docs folder README for folders: docs, diagrams, prompts
+- prompt sub-folder READMEs for output-logs
+- docs sub-folder READMEs for history, requirements, rules
+- new rules:
+  - docstring formatting
 
 ## [1.3.1] - 2025-11-05
 
