@@ -1,22 +1,68 @@
-# Name of Your Project
+# Python Development Toolkit
 
-An introduction paragraph must contain a brief fescription of the project. If there are acronymns, create a section with a [table](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/organizing-information-with-tables) for this so they can be spelled out correctly.
+A comprehensive template and toolkit for Python projects with AI-assisted workflows, specification-driven development, and security-first patterns.
 
-## Acronymns
+## Two Ways to Use This Repository
+
+### 🆕 For New Projects - Use as Template
+
+Click "Use this template" on GitHub to start a new project with everything pre-configured.
+
+### ➕ For Existing Projects - Add Components Selectively
+
+Run the interactive installer to add only what you need to your existing codebase:
+
+```bash
+# Quick install
+git clone https://github.com/yourusername/repo-template-python /tmp/toolkit
+python /tmp/toolkit/install.py
+```
+
+**Features:**
+
+- ✅ Non-destructive - detects conflicts before overwriting
+- ✅ Modular - select only components you want
+- ✅ Mergeable - combines dependencies intelligently
+- ✅ Zero impact on existing code
+
+See **[DISTRIBUTION.md](DISTRIBUTION.md)** for detailed usage instructions.
+
+---
+
+## What's Included
+
+### Acronymns
 
 | Acronymn | spelled out  | description as needed |
 | :------: | :----------- | --------------------: |
 |   `CC`   | Content Cell |  a place in the table |
 
-Your introduction should also include:
+### Components
 
-- 1-1 sentences describing the problem to solve
-- audience / end user the solution is for
-- how to run
+| Component         | Description                                          | Impact                    |
+| ----------------- | ---------------------------------------------------- | ------------------------- |
+| **AI Workflows**  | Claude/Copilot instructions, prompts, slash commands | None - pure documentation |
+| **Documentation** | Requirements/spec templates, structured docs         | None - pure documentation |
+| **CI/CD**         | GitHub Actions for linting, testing, security        | Auto-runs on push         |
+| **Quality Tools** | Pre-commit hooks, Black, flake8 configs              | Formats code              |
+| **Logging**       | Custom logger with decorators and rotation           | None until used           |
+| **Testing**       | Pytest configuration and patterns                    | None until used           |
+| **Dev Tools**     | Makefile shortcuts, uv configs                       | None - convenience        |
 
-## Requirements
+### Key Features
 
-What are the requirements for success of thsi repo? What are your milestones, nice to haves, etc?
+- **Specification-Driven Development**: Requirements → Specifications → TDD Implementation
+- **AI-Assisted Workflows**: Structured prompts for Claude Code and GitHub Copilot
+- **Security-First**: Integrated [CodeGuard](https://project-codeguard.org/) security guidelines
+- **Production Patterns**: Custom logging, comprehensive testing, rotating logs
+- **Quality Automation**: Pre-commit hooks, CI/CD, linting and formatting
+
+## Documentation
+
+- **[DISTRIBUTION.md](DISTRIBUTION.md)** - How to use as template or add to existing projects
+- **[docs/INTEGRATION.md](docs/INTEGRATION.md)** - Detailed integration guide with troubleshooting
+- **[CLAUDE.md](CLAUDE.md)** - Project overview and AI assistant instructions
+- **[.claude/commands/README.md](.claude/commands/README.md)** - Custom slash commands reference
 
 # Getting Started
 
@@ -62,6 +108,7 @@ What you need in order to run this project & where to go / how to install them.
 This project uses `uv` and `uvx` for virtual environment and dependency management. See the [uvx setup guide](docs/uvx-setup-guide.md) for detailed installation and usage instructions.
 
 **Quick Start:**
+
 ```bash
 # Install uv (includes uvx)
 # macOS/Linux:

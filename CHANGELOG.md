@@ -21,6 +21,7 @@ TBD
 
 - Updated diagram formatting expectations and examples
 - minor prompt and isntruction updates for threat modeling and workflow-req-to-spec
+- main project README
 
 ## [1.4.1] - 2025-11-09
 
