@@ -4,7 +4,7 @@ This directory is where you should save all the requirements documents created f
 
 ## Purpose
 
-- Store requirements documents generated using Claude and the template from `@docs/templates/requirements-template.md`
+- Store requirements documents generated using Claude or Copilot with the template from at [`requirements-template.md`](../templates/requirements-template.md)
 - Keep all project requirements organized in one location
 - Reference during specification and implementation phases
 

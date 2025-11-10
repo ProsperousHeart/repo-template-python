@@ -38,6 +38,9 @@ today = date.today()
 # could be used when considering creation of a class instead of a function
 # ===========================================================================
 
+# Cache for logger instances to avoid redundant configuration
+_logger_cache = {}
+
 
 # logging levels:  https://docs.python.org/3/library/logging.html#logging-levels
 def create_logger(
@@ -66,9 +69,18 @@ def create_logger(
         - Do not log sensitive data (passwords, tokens, PII).
         - Use safe string formatting.
     """
-    # if file for writing logs does not exist, create it
+    # Normalize log_loc for cache key
     if log_loc is None:
         log_loc = os.path.join(os.path.dirname(os.path.dirname(__file__)), "logs")
+
+    # Create cache key from configuration parameters
+    cache_key = (file_name, file_mode, file_lvl, console_lvl, log_loc)
+
+    # Return cached logger if available
+    if cache_key in _logger_cache:
+        return _logger_cache[cache_key]
+
+    # if file for writing logs does not exist, create it
     if not os.path.exists(log_loc):
         os.makedirs(log_loc)
 
@@ -115,6 +127,8 @@ def create_logger(
         console_handler.setFormatter(console_format)
         logger.addHandler(console_handler)
 
+    # Cache the logger before returning
+    _logger_cache[cache_key] = logger
     return logger
 
 
@@ -136,18 +150,18 @@ def func_wrapper(logger):
         def log_func_wrapper(*args, **kwargs):
             # logger = [arg for arg in args if isinstance(arg, logging.Logger)][0]
             logger.debug(
-                f"Starting {func.__qualname__} from module:\t{func.__module__}"
+                "Starting %s from module:\t%s", func.__qualname__, func.__module__
             )
             try:
                 rtn_data = func(*args, **kwargs)
             except Exception as err:
-                logger.critical(pprint.pformat(err))
+                logger.critical(pp.pformat(err))
                 raise err
             else:
                 return rtn_data
             finally:
                 logger.debug(
-                    f"Ending {func.__qualname__} from module:\t{func.__module__}"
+                    "Ending %s from module:\t%s", func.__qualname__, func.__module__
                 )
 
         return log_func_wrapper
@@ -177,7 +191,7 @@ def sol_wrapper(logger):
             finalized when closing.
             """
             # logger = [arg for arg in args if isinstance(arg, logging.Logger)][0]
-            logger.debug(f"{'='*3} Starting of Logs {'='*3}")
+            logger.debug("===== Starting of Logs =====")
             try:
                 rtn_data = func(*args, **kwargs)
             except Exception as err:
@@ -193,13 +207,13 @@ def sol_wrapper(logger):
                     if isinstance(h, logging.FileHandler)
                 ]
                 logger.critical(
-                    f"There's been an ERROR! Check your logs: {', '.join(file_names)}"
+                    "There's been an ERROR! Check your logs: %s", ", ".join(file_names)
                 )
-                logger.debug(pprint.pformat(err))
+                logger.debug(pp.pformat(err))
             else:
                 return rtn_data
             finally:
-                logger.debug(f'{"="*3} Ending of Logs {"="*3}')
+                logger.debug("===== Ending of Logs =====")
 
         return log_func_wrapper
 

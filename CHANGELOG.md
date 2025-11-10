@@ -15,6 +15,54 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 TBD
 
+## [1.3.2] - 2025-11-09
+
+### Added
+
+- created instructions folder including but not limited to how ot use workflow items for Claude and copilot
+- general testing guidelines
+- docs folder README for folders: docs, diagrams, prompts
+- prompt sub-folder READMEs for output-logs
+- docs sub-folder READMEs for history, requirements, rules
+- new rules:
+  - docstring formatting
+  - error resolution KB
+  - output format
+- new instructions
+  - quality-checklist.instructions.md
+  - architecture-diagrams.instructions.md
+  - threat-modeling.instructions.md
+  - test-planning.instructions.md
+  - tdd-workflow.instructions.md
+  - security-review.instructions.md
+  - post-test-review.instructions.md
+  - automation-setup.instructions.md
+  - master-workflow.md
+- new prompts:
+  - generate-spec-from-requirement.prompt.md
+  - generate-code-from-spec.prompt.md
+  - create-architecture-diagram.prompt.md
+  - create-threat-model.prompt.md
+  - testcase.prompt.md
+  - verify-implementation.prompt.md
+  - workflow-requirements-to-spec.prompt.md
+  - workflow-spec-to-code.prompt.md
+  - master-workflow.prompt.md
+- new Claude commands:
+  - quality-review.md
+- added history of development files
+- added `INDEX.md` in `docs\` folder - central hub for simple navigation
+- created `SPEC-CROSS-REFERENCE.md` in `docs\` folder that toes relationships between files together
+- add copilot and Claude setup environment instructions
+- Claude command README
+- new `.gitleaksignore` file in case it still hits fake secrets
+
+### Updated
+
+- `logger.py` utils file with minor improvements
+- `CLAUDE.md` via running `init`
+- `security-review.instructions.md` to make fake secrets clear that they are fake
+
 ## [1.3.1] - 2025-11-05
 
 ### Added

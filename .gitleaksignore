@@ -1,0 +1,11 @@
+# GitLeaks Ignore File
+
+# This file contains exceptions for GitLeaks secret scanning
+
+# Format: fingerprint from GitLeaks output
+
+# Documentation examples containing fake/placeholder secrets for teaching purposes
+
+# JWT token example in docstring standards
+
+220aeb63b397a5a7bb3fd95aecc77886f6bde9d3:docs/rules/docstring-standards.md:generic-api-key:101
