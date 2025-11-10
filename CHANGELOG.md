@@ -28,14 +28,15 @@ TBD
   - docstring formatting
   - error resolution KB
   - output format
-- new prompts:
-  - generate-spec-from-requirement.prompt.md
-  - generate-code-from-spec.prompt.md
 - new instructions
   - quality=checklist.instructions.md
   - threat-modeling.instructions.md
   - test-planning.instructions.md
   - tdd-workflow.instructions.md
+- new prompts:
+  - generate-spec-from-requirement.prompt.md
+  - generate-code-from-spec.prompt.md
+  - create-threat-model.prompt.md
 
 ## [1.3.1] - 2025-11-05
 
