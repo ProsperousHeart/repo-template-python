@@ -23,3 +23,13 @@ Project CodeGuard is an open-source security framework from Cisco that embeds se
 - Cloud security
 - Platform security
 - Data protection
+
+## Diagram Format Requirements
+
+**CRITICAL**: All architecture diagrams MUST include THREE formats:
+
+1. **Text Description** - Human-readable bullet points, tables, or numbered lists
+2. **ASCII Diagram** - Text-based visual using box-drawing characters (┌ ─ ┐ │ └ ┘ ├ ┤ ┬ ┴ ┼ → ↓ ↑ ← ═)
+3. **Mermaid Diagram** - Collapsible Mermaid code block
+
+See `.github/instructions/architecture-diagrams.instructions.md` for complete format structure and examples.

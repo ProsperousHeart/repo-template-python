@@ -15,7 +15,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 TBD
 
-## [1.3.2] - 2025-11-09
+## [1.4.2] - 2025-11-10
+
+### Updates
+
+- Updated diagram formatting expectations and examples
+
+## [1.4.1] - 2025-11-09
 
 ### Added
 

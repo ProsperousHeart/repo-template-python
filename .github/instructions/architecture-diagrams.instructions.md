@@ -285,6 +285,53 @@ Reference relevant CodeGuard files:
 
 **TODO**: Add security annotation examples for diagrams
 
+## 🎨 Diagram Format Requirements
+
+**REQUIRED**: All architecture diagrams MUST include THREE formats:
+
+1. **Text Description** - Human-readable bullet points, tables, or numbered lists
+2. **ASCII Diagram** - Text-based visual diagram using box-drawing characters
+3. **Mermaid Diagram** - Collapsible Mermaid code block
+
+**Format Structure:**
+
+```markdown
+### Diagram Name
+
+Brief summary sentence.
+
+#### Text Description: [Name]
+
+[Bullet points, tables, or numbered lists describing the diagram]
+
+#### ASCII Diagram: [Name]
+
+\`\`\`
+[ASCII art diagram using ┌ ─ ┐ │ └ ┘ ├ ┤ ┬ ┴ ┼ → ↓ ↑ ← ═ etc.]
+\`\`\`
+
+#### Mermaid Diagram: [Name]
+
+<details>
+<summary>📊 View Mermaid Diagram Code</summary>
+
+\`\`\`mermaid
+[Mermaid code]
+\`\`\`
+
+</details>
+
+#### Detailed Explanation
+
+[Comprehensive explanation of the diagram]
+```
+
+**Why Three Formats?**
+- **Accessibility**: Text descriptions for screen readers and those who can't view diagrams
+- **Portability**: ASCII diagrams work in all text editors and terminals
+- **Rendering**: Mermaid for visual rendering in supported environments
+- **Redundancy**: Multiple formats ensure information is never lost
+
 ## 🤖 AI Assistant Integration
 
 ### For Claude Code
@@ -293,11 +340,12 @@ When generating architecture diagrams:
 
 1. Reference requirement and specification documents
 2. Use appropriate Mermaid diagram types
-3. Include security annotations
-4. Link relevant CodeGuard files
-5. Save to `docs/diagrams/` with proper prefix
-6. Update cross-reference table
-7. Create versioned copies for updates (not in-place edits)
+3. **ALWAYS include all three formats**: Text, ASCII, and Mermaid
+4. Include security annotations
+5. Link relevant CodeGuard files
+6. Save to `docs/diagrams/` with proper prefix
+7. Update cross-reference table
+8. Create versioned copies for updates (not in-place edits)
 
 **TODO**: Add Claude-specific examples and prompts
 
@@ -323,6 +371,26 @@ When generating architecture diagrams:
 
 ### Example: Simple API Architecture
 
+This example demonstrates a basic microservices architecture with an API gateway fronting multiple backend services.
+
+#### Text Description: API Architecture
+
+**Client-to-Services Flow:**
+- **Client App** connects to **API Gateway** via HTTPS
+- **API Gateway** routes requests to:
+  - **Auth Service** (authentication and authorization)
+  - **Service 1** (connects to Database 1)
+  - **Service 2** (connects to Database 2)
+
+**Data Layer:**
+- Service 1 → Database 1
+- Service 2 → Database 2
+
+#### Mermaid Diagram: API Architecture
+
+<details>
+<summary>📊 View Mermaid Diagram Code</summary>
+
 ```mermaid
 graph LR
     Client[Client App] -->|HTTPS| API[API Gateway]
@@ -333,7 +401,63 @@ graph LR
     Service2 --> DB2[(Database)]
 ```
 
+</details>
+
+#### ASCII Diagram: API Architecture
+
+```
+                                         ┌──────────────────┐
+                                         │   Auth Service   │
+                                         └──────────────────┘
+                                                 ↑
+                                                 │
+┌──────────────┐       HTTPS        ┌────────────┴─────────┐
+│  Client App  │ ═════════════════> │    API Gateway       │
+└──────────────┘                    └────────────┬─────────┘
+                                                 │
+                                   ┌─────────────┼─────────────┐
+                                   │             │             │
+                                   ↓             ↓             ↓
+                           ┌──────────────┐ ┌──────────────┐  ...
+                           │  Service 1   │ │  Service 2   │
+                           └──────┬───────┘ └──────┬───────┘
+                                  │                │
+                                  ↓                ↓
+                           ┌──────────────┐ ┌──────────────┐
+                           │ ┌──────────┐ │ │ ┌──────────┐ │
+                           │ │Database 1│ │ │ │Database 2│ │
+                           │ └──────────┘ │ │ └──────────┘ │
+                           └──────────────┘ └──────────────┘
+```
+
+#### Detailed Explanation
+
+This architecture follows a common microservices pattern:
+- **API Gateway**: Single entry point for all client requests, handles routing, rate limiting, and protocol translation
+- **Auth Service**: Centralized authentication service that validates tokens and manages user sessions
+- **Service 1 & 2**: Independent backend services with their own databases (database-per-service pattern)
+- **HTTPS**: Encrypted communication between client and gateway for security
+- **Separation of concerns**: Each service has its own database, enabling independent scaling and deployment
+
 ### Example: Authentication Flow
+
+This sequence diagram illustrates a typical JWT-based authentication flow from login to token storage.
+
+#### Text Description: Authentication Flow
+
+1. **User** enters credentials into the **Frontend**
+2. **Frontend** sends POST request to **Auth Service** (`POST /login`)
+3. **Auth Service** queries **Database** to verify user credentials
+4. **Database** returns user data to **Auth Service**
+5. **Auth Service** generates a JWT token
+6. **Auth Service** returns JWT to **Frontend**
+7. **Frontend** stores the token (typically in secure storage)
+8. **Frontend** displays login success message to **User**
+
+#### Mermaid Diagram: Authentication Flow
+
+<details>
+<summary>📊 View Mermaid Diagram Code</summary>
 
 ```mermaid
 sequenceDiagram
@@ -352,7 +476,95 @@ sequenceDiagram
     F-->>U: Login Success
 ```
 
+</details>
+
+#### ASCII Diagram: Authentication Flow
+
+```
+┌──────┐          ┌──────────┐        ┌──────────────┐      ┌──────────┐
+│ User │          │ Frontend │        │ Auth Service │      │ Database │
+└──┬───┘          └────┬─────┘        └──────┬───────┘      └────┬─────┘
+   │                   │                     │                   │
+   │ Enter Credentials │                     │                   │
+   │──────────────────>│                     │                   │
+   │                   │                     │                   │
+   │                   │  POST /login        │                   │
+   │                   │────────────────────>│                   │
+   │                   │                     │                   │
+   │                   │                     │  Verify User      │
+   │                   │                     │──────────────────>│
+   │                   │                     │                   │
+   │                   │                     │  User Data        │
+   │                   │                     │<──────────────────│
+   │                   │                     │                   │
+   │                   │                     │ Generate JWT      │
+   │                   │                     │──────┐            │
+   │                   │                     │      │            │
+   │                   │                     │<─────┘            │
+   │                   │                     │                   │
+   │                   │  Return JWT         │                   │
+   │                   │<────────────────────│                   │
+   │                   │                     │                   │
+   │                   │ Store Token         │                   │
+   │                   │──────┐              │                   │
+   │                   │      │              │                   │
+   │                   │<─────┘              │                   │
+   │                   │                     │                   │
+   │  Login Success    │                     │                   │
+   │<──────────────────│                     │                   │
+   │                   │                     │                   │
+```
+
+#### Detailed Explanation
+
+This authentication flow demonstrates secure credential verification:
+- **Credential submission**: User submits username/password through the frontend
+- **API request**: Frontend sends credentials via secure POST to the authentication service
+- **Database verification**: Auth service queries database to verify credentials (password should be hashed)
+- **Token generation**: Upon successful verification, a JWT token is generated with user claims
+- **Token delivery**: JWT is returned to frontend for subsequent authenticated requests
+- **Secure storage**: Frontend stores token securely (httpOnly cookie or secure localStorage)
+- **User feedback**: User receives confirmation of successful login
+
+**Security considerations**: Passwords should never be sent in plain text (use HTTPS), stored passwords must be hashed with bcrypt or similar, and tokens should have appropriate expiration times.
+
 ### Example: Database Schema
+
+This ERD example shows a simple blog platform with users, posts, and comments.
+
+#### Text Description: Database Schema
+
+**Entities and Relationships:**
+
+| Entity | Relationship | Related Entity | Cardinality |
+|--------|-------------|---------------|-------------|
+| USER | writes | POST | One-to-Many (one user can write many posts) |
+| USER | writes | COMMENT | One-to-Many (one user can write many comments) |
+| POST | has | COMMENT | One-to-Many (one post can have many comments) |
+
+**Entity Attributes:**
+
+**USER Entity:**
+- `id` (int) - Primary key
+- `username` (string) - User's display name
+- `email` (string) - User's email address
+
+**POST Entity:**
+- `id` (int) - Primary key
+- `author_id` (int) - Foreign key to USER
+- `title` (string) - Post title
+- `content` (text) - Post body content
+
+**COMMENT Entity:**
+- `id` (int) - Primary key
+- `post_id` (int) - Foreign key to POST
+- `author_id` (int) - Foreign key to USER
+- `content` (text) - Comment content
+
+#### Mermaid Diagram: Database Schema
+
+<details>
+<summary>📊 View Mermaid Diagram Code</summary>
 
 ```mermaid
 erDiagram
@@ -377,6 +589,48 @@ erDiagram
     }
     USER ||--o{ COMMENT : writes
 ```
+
+</details>
+
+#### ASCII Diagram: Database Schema
+
+```
+┌──────────────────┐                      ┌──────────────────┐
+│      USER        │                      │      POST        │
+├──────────────────┤                      ├──────────────────┤
+│ PK: id (int)     │                      │ PK: id (int)     │
+│     username     │──────── writes ─────>│ FK: author_id    │
+│     email        │        (1:N)         │     title        │
+└────────┬─────────┘                      │     content      │
+         │                                └────────┬─────────┘
+         │                                         │
+         │                                         │
+         │                                        has
+         │                                       (1:N)
+         │                                         │
+         │                                         ↓
+         │                                ┌──────────────────┐
+         │                                │     COMMENT      │
+         │                                ├──────────────────┤
+         │                                │ PK: id (int)     │
+         └─────────── writes ────────────>│ FK: post_id      │
+                      (1:N)               │ FK: author_id    │
+                                          │     content      │
+                                          └──────────────────┘
+```
+
+#### Detailed Explanation
+
+This database schema illustrates a typical blog platform design:
+- **USER entity**: Stores user account information with unique identifier, username, and email
+- **POST entity**: Contains blog posts authored by users, with foreign key relationship to USER table
+- **COMMENT entity**: Stores comments on posts, with foreign keys to both POST (which post) and USER (who commented)
+- **Relationships**:
+  - One user can write multiple posts (1:N)
+  - One user can write multiple comments (1:N)
+  - One post can have multiple comments (1:N)
+- **Referential integrity**: Foreign keys ensure comments reference valid posts and users
+- **Cardinality notation**: `||--o{` means "one-to-many" (one on left, zero or more on right)
 
 **TODO**: Add more comprehensive diagram examples
 
