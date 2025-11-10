@@ -98,7 +98,7 @@ def authenticate_user(
         >>> result = authenticate_user("user@example.com", "password123")
         >>> if result.success:
         ...     print(f"Token: {result.token}")
-        Token: abc123xyz789
+        Token: example_token_string
 
         >>> result = authenticate_user("invalid@email", "wrong")
         >>> print(result.error)
