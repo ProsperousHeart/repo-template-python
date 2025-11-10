@@ -34,6 +34,7 @@ TBD
   - threat-modeling.instructions.md
   - test-planning.instructions.md
   - tdd-workflow.instructions.md
+  - security-review.instructions.md
   - post-test-review.instructions.md
 - new prompts:
   - generate-spec-from-requirement.prompts.md
