@@ -32,6 +32,7 @@ TBD
   - generate-spec-from-requirement.prompt.md
   - generate-code-from-spec.prompt.md
 - new instructions
+  - quality=checklist.instructions.md
   - threat-modeling.instructions.md
   - test-planning.instructions.md
   - tdd-workflow.instructions.md
