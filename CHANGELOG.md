@@ -36,6 +36,7 @@ TBD
   - tdd-workflow.instructions.md
   - security-review.instructions.md
   - post-test-review.instructions.md
+  - automation-setup.instructions.md
 - new prompts:
   - generate-spec-from-requirement.prompt.md
   - generate-code-from-spec.prompt.md
