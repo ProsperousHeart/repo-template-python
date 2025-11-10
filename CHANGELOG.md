@@ -48,6 +48,7 @@ TBD
   - workflow-spec-to-code.prompt.md
 - new Claude commands:
   - quality-review.md
+- added history of development files
 
 ### Updated
 
