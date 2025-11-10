@@ -216,7 +216,7 @@ Claude will:
 
 ```python
 # ❌ Bad
-API_KEY = "sk-1234567890abcdef"
+API_KEY = "hardcoded-api-key-example-do-not-do-this"
 
 # ✅ Good
 import os

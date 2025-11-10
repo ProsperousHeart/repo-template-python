@@ -55,11 +55,13 @@ TBD
 - created `SPEC-CROSS-REFERENCE.md` in `docs\` folder that toes relationships between files together
 - add copilot and Claude setup environment instructions
 - Claude command README
+- new `.gitleaksignore` file in case it still hits fake secrets
 
 ### Updated
 
 - `logger.py` utils file with minor improvements
 - `CLAUDE.md` via running `init`
+- `security-review.instructions.md` to make fake secrets clear that they are fake
 
 ## [1.3.1] - 2025-11-05
 
