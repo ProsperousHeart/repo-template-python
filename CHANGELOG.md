@@ -15,6 +15,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 TBD
 
+## [1.3.2] - 2025-11-09
+
+### Added
+
+- created instructions folder including but not limited to how ot use workflow items for Claude and copilot
+- general testing guidelines
+
 ## [1.3.1] - 2025-11-05
 
 ### Added
