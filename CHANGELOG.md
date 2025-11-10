@@ -28,6 +28,8 @@ TBD
   - docstring formatting
   - error resolution KB
   - output format
+- new prompts:
+  - generate-spec-from-requirement.prompt.md
 
 ## [1.3.1] - 2025-11-05
 
