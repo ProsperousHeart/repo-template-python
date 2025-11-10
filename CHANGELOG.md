@@ -34,11 +34,14 @@ TBD
   - threat-modeling.instructions.md
   - test-planning.instructions.md
   - tdd-workflow.instructions.md
+  - post-test-review.instructions.md
 - new prompts:
   - generate-spec-from-requirement.prompts.md
   - generate-code-from-spec.prompts.md
   - create-architecture-diagram.prompts.md
   - create-threat-model.prompts.md
+- new Claude commands:
+  - quality-review.md
 
 ### Updated
 
