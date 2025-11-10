@@ -37,6 +37,7 @@ TBD
   - security-review.instructions.md
   - post-test-review.instructions.md
   - automation-setup.instructions.md
+  - master-workflow.md
 - new prompts:
   - generate-spec-from-requirement.prompt.md
   - generate-code-from-spec.prompt.md
@@ -46,6 +47,7 @@ TBD
   - verify-implementation.prompt.md
   - workflow-requirements-to-spec.prompt.md
   - workflow-spec-to-code.prompt.md
+  - master-workflow.prompt.md
 - new Claude commands:
   - quality-review.md
 - added history of development files
