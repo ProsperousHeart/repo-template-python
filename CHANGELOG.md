@@ -26,6 +26,7 @@ TBD
 - docs sub-folder READMEs for history, requirements, rules
 - new rules:
   - docstring formatting
+  - error resolution KB
 
 ## [1.3.1] - 2025-11-05
 
