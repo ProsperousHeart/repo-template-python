@@ -18,7 +18,7 @@ These slash commands are **convenience wrappers** that delegate to tool-agnostic
 | Command                                  | Purpose                                 | Delegates To                                                |
 | ---------------------------------------- | --------------------------------------- | ----------------------------------------------------------- |
 | `/setup-env`                             | Set up UV virtual environment           | `.github/instructions/uv-environment-setup.instructions.md` |
-| `/create-requirement <name>`             | Create new requirement document         | `docs/templates/requirements-template.md`                   |
+| `/create-requirement <name>`             | Create new requirement document         | `.github/prompts/create-requirement.prompt.md`              |
 | `/make-spec-from-req <req-file> [scope]` | Generate specification from requirement | `.github/prompts/workflow-requirements-to-spec.prompt.md`   |
 | `/implement-spec <spec-file>`            | Implement specification using TDD       | `.github/prompts/workflow-spec-to-code.prompt.md`           |
 | `/quality-review`                        | Run comprehensive quality checks        | `.github/instructions/quality-checklists.md`                |
@@ -199,7 +199,7 @@ These slash commands are **thin wrappers** around workflow prompts:
 ```
 .claude/commands/           →  Delegates to  →  .github/prompts/
 ├── setup-env.md            →                 →  (instructions)
-├── create-requirement.md   →                 →  requirements-template.md
+├── create-requirement.md   →                 →  create-requirement.prompt.md
 ├── make-spec-from-req.md   →                 →  workflow-requirements-to-spec.prompt.md
 ├── implement-spec.md       →                 →  workflow-spec-to-code.prompt.md
 └── quality-review.md       →                 →  quality-checklists.md

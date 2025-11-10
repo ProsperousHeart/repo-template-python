@@ -17,6 +17,10 @@ TBD
 
 ## [1.4.2] - 2025-11-10
 
+### Added
+
+- create requirement command and prompt
+
 ### Updates
 
 - Updated diagram formatting expectations and examples
