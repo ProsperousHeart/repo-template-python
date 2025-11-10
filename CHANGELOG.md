@@ -22,6 +22,7 @@ TBD
 - created instructions folder including but not limited to how ot use workflow items for Claude and copilot
 - general testing guidelines
 - docs folder README
+- diagrams folder README
 
 ## [1.3.1] - 2025-11-05
 
