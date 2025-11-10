@@ -50,6 +50,7 @@ TBD
   - quality-review.md
 - added history of development files
 - added `INDEX.md` in `docs\` folder - central hub for simple navigation
+- created `SPEC-CROSS-REFERENCE.md` in `docs\` folder that toes relationships between files together
 
 ### Updated
 
