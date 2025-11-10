@@ -37,13 +37,14 @@ TBD
   - security-review.instructions.md
   - post-test-review.instructions.md
 - new prompts:
-  - generate-spec-from-requirement.prompts.md
-  - generate-code-from-spec.prompts.md
-  - create-architecture-diagram.prompts.md
-  - create-threat-model.prompts.md
-  - testcase.prompts.md
+  - generate-spec-from-requirement.prompt.md
+  - generate-code-from-spec.prompt.md
+  - create-architecture-diagram.prompt.md
+  - create-threat-model.prompt.md
+  - testcase.prompt.md
   - verify-implementation.prompt.md
-  - workflow-requirements-to-spec.prompts.md
+  - workflow-requirements-to-spec.prompt.md
+  - workflow-spec-to-code.prompt.md
 - new Claude commands:
   - quality-review.md
 
