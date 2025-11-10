@@ -31,6 +31,8 @@ TBD
 - new prompts:
   - generate-spec-from-requirement.prompt.md
   - generate-code-from-spec.prompt.md
+- new instructions
+  - threat-modeling.instructions.md
 
 ## [1.3.1] - 2025-11-05
 
