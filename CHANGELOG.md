@@ -41,6 +41,7 @@ TBD
   - generate-code-from-spec.prompts.md
   - create-architecture-diagram.prompts.md
   - create-threat-model.prompts.md
+  - testcase.prompts.md
 - new Claude commands:
   - quality-review.md
 
