@@ -1,6 +1,6 @@
 # Documentation Master Index
 
-**Last Updated**: 2025-11-09
+**Last Updated**: 2025-11-10
 
 This is the central hub for all project documentation. This index is automatically maintained as requirements, specifications, and code evolve.
 
@@ -57,24 +57,31 @@ graph LR
 ### ASCII Diagram: Documentation Flow
 
 ```
-┌──────────────┐
-│ Requirements │
-└──────┬───────┘
-       │
-       ↓
-┌──────────────┐
-│Specifications│ (includes architecture, data flows, integrations)
-└──────┬───────┘
-       │
-       ├──────────────────┬──────────────────┬─────────────────┐
-       │                  │                  │                 │
-       ↓                  ↓                  ↓                 ↓
-┌─────────────┐   ┌──────────────┐   ┌──────────────┐  ┌─────────┐
-│Architecture │   │Threat Models │   │     Code     │  │  Tests  │
-│  Diagrams   │   │              │   │  Generation  │  │         │
-└─────────────┘   └──────────────┘   └──────┬───────┘  └─────────┘
-                                            │
-                                            └────────────────────┘
+         ┌──────────────┐
+         │ Requirements │
+         └──────┬───────┘
+                │
+                ↓
+         ┌──────────────────────────────────────────────────┐
+         │         Specifications                           │
+         │ (includes architecture, data flows, integrations)│
+         └──────┬───────────────────────────────────────────┘
+                │
+                ├──────────────────┬─────────────────┐
+                │                  │                 │
+                ↓                  ↓                 ↓
+         ┌─────────────┐    ┌──────────┐      ┌──────────┐
+         │Architecture │    │  Tests   │      │  Code    │
+         │  Diagrams   │    │  (TDD)   │      │Generation│
+         └──────┬──────┘    └────┬─────┘      └────▲─────┘
+                │                │                 │
+                │                └─────────────────┘
+                │
+                ↓
+         ┌──────────────┐
+         │Threat Models │◄───── (requires Spec + Architecture)
+         │   (STRIDE)   │
+         └──────────────┘
 ```
 
 ### Detailed Flow Explanation
@@ -140,6 +147,7 @@ All diagrams use Mermaid format embedded in Markdown.
 Project-specific standards and conventions:
 
 - [Docstring Standards](rules/docstring-standards.md)
+- [Markdown Standards](rules/markdown-standards.md)
 - [Output Format Specifications](rules/output-format.md)
 - [Error Resolution KB](rules/error-resolution-kb.md)
 
