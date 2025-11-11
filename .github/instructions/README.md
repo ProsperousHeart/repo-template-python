@@ -83,13 +83,18 @@ See [automation-setup.instructions.md](automation-setup.instructions.md) for imp
 
 ## 📝 Adding New Instructions
 
-When adding new instruction files:
+When adding new instruction files, **follow the Meta-Documentation Checklist** at `../.github/META-CHECKLIST.md`.
+
+Quick checklist:
 
 1. Use descriptive filenames ending in `.instructions.md`
 2. Include clear step-by-step guidance
 3. Add examples where helpful
 4. Update this README with a link and description
 5. Reference from relevant prompts in `../.github/prompts/`
+6. Update CHANGELOG.md
+
+**See `../META-CHECKLIST.md` for complete synchronization requirements.**
 
 ## 🔗 Related Documentation
 
