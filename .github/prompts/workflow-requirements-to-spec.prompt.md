@@ -125,10 +125,10 @@ If you prefer to execute each step individually:
 Use generate-spec-from-requirement prompt for docs/requirements/req-user-auth.md
 
 # Step 2 (after Step 1 completes)
-Use create-threat-model prompt for docs/requirements/req-user-auth.md with scope per-requirement
+Use create-architecture-diagram prompt for docs/specifications/spec_user-auth.md
 
 # Step 3 (after Step 2 completes)
-Use create-architecture-diagram prompt for docs/specifications/spec_user-auth.md
+Use create-threat-model prompt for docs/specifications/spec_user-auth.md with scope per-specification
 
 # Step 4 (after Step 3 completes)
 Conduct specification quality review using quality-checklists.md

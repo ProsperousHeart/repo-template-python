@@ -1,7 +1,7 @@
 # Prompt: Create Threat Model
 
 **Purpose**: Generate security threat model based on a specification
-**Input**: Specification document path, scope (per-req, per-spec | aggregate | grouped)
+**Input**: Specification document path, scope (per-requirement | per-specification | high-level-aggregate | grouped-by-feature)
 **Output**: Threat model diagram in `docs/diagrams/`
 **Prerequisites**: Specification and architecture diagram must exist
 **References**:
@@ -15,7 +15,7 @@ Create a security threat model for the specification at {specification_path}.
 
 **IMPORTANT**: Threat modeling requires a completed specification and architecture diagram. Verify these exist before proceeding.
 
-Scope: {per-rec | per-spec | high-level-aggregate | grouped-by-feature}
+Scope: {per-requirement | per-specification | high-level-aggregate | grouped-by-feature}
 
 Instructions:
 0. Read the requirements document and if it is not found in {specification_path}, return an error indicating the file is missing. When the specification is made, it should include the requirements document it was designed from.
@@ -51,10 +51,10 @@ Note: When updating existing threat models, create a new version file (threat-mo
 
 ```
 # Per Requirement
-Use the create-threat-model prompt for docs/requirements/req_plant-database.md with scope per-req
+Use the create-threat-model prompt for docs/requirements/req_plant-database.md with scope per-requirement
 
 # Per Specification
-Use the create-threat-model prompt for docs/specifications/spec_auth.md with scope per-spec
+Use the create-threat-model prompt for docs/specifications/spec_auth.md with scope per-specification
 ```
 
 ### With GitHub Copilot
