@@ -20,12 +20,15 @@ TBD
 ### Added
 
 - create requirement command and prompt
+- markdown standards
+- Claude commands from original prompts
 
 ### Updates
 
 - Updated diagram formatting expectations and examples
 - minor prompt and isntruction updates for threat modeling and workflow-req-to-spec
 - main project README
+- doc updates
 
 ## [1.4.1] - 2025-11-09
 
