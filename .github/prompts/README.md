@@ -11,10 +11,11 @@ This folder contains reusable prompt templates for common AI-assisted operations
 ### Individual Operation Prompts
 - **[generate-spec-from-requirement.prompt.md](generate-spec-from-requirement.prompt.md)** - Convert requirement to technical specification
 - **[generate-code-from-spec.prompt.md](generate-code-from-spec.prompt.md)** - Generate code from specification using TDD
-- **[create-threat-model.prompt.md](create-threat-model.prompt.md)** - Create security threat model
-- **[create-architecture-diagram.prompt.md](create-architecture-diagram.prompt.md)** - Generate architecture diagram
-- **[security-review.prompt.md](security-review.prompt.md)** - Conduct security review (TODO: create this file)
-- **[update-documentation.prompt.md](update-documentation.prompt.md)** - Update documentation indexes and cross-references (TODO: create this file)
+- **[create-threat-model.prompt.md](create-threat-model.prompt.md)** - Create security threat model using STRIDE
+- **[create-architecture-diagram.prompt.md](create-architecture-diagram.prompt.md)** - Generate architecture diagram (text/ASCII/Mermaid)
+- **[verify-implementation.prompt.md](verify-implementation.prompt.md)** - Comprehensive verification of code implementation
+- **[security-review.prompt.md](security-review.prompt.md)** - Conduct security review with CodeGuard compliance
+- **[update-documentation.prompt.md](update-documentation.prompt.md)** - Update documentation indexes and cross-references
 
 ## 🎯 How to Use Prompts
 
@@ -59,7 +60,9 @@ Execution logs from using these prompts are saved to `output-logs/` (gitignored 
 
 ## 🔗 Related Documentation
 
-- [Instructions](../.github/instructions/) - How-to guides referenced by prompts
-- [Master Workflow](../.github/instructions/master-workflow.md) - Complete workflow overview
-- [Claude Usage](../.github/instructions/claude-usage.instructions.md) - Using prompts with Claude
-- [Copilot Usage](../.github/instructions/copilot-usage.instructions.md) - Using prompts with Copilot
+- [Instructions](../instructions/) - How-to guides referenced by prompts
+- [Master Workflow](../instructions/master-workflow.md) - Complete workflow overview
+- [Claude Usage](../instructions/claude-usage.instructions.md) - Using prompts with Claude
+- [Copilot Usage](../instructions/copilot-usage.instructions.md) - Using prompts with Copilot
+- [Claude Commands](../../.claude/commands/) - Claude Code slash commands that delegate to these prompts
+- [Meta-Checklist](../META-CHECKLIST.md) - Checklist for keeping documentation synchronized

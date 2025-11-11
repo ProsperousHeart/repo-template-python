@@ -15,7 +15,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 TBD
 
-## [1.3.2] - 2025-11-09
+## [1.4.2] - 2025-11-10
+
+### Added
+
+- create requirement command and prompt
+- markdown standards
+- Claude commands from original prompts
+
+### Updates
+
+- Updated diagram formatting expectations and examples
+- minor prompt and isntruction updates for threat modeling and workflow-req-to-spec
+- main project README
+- doc updates
+
+## [1.4.1] - 2025-11-09
 
 ### Added
 

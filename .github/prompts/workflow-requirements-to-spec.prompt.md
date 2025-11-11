@@ -39,17 +39,27 @@ If any critical prerequisite fails, report error and exit.
 
 Use the prompt at .github/prompts/generate-spec-from-requirement.prompt.md for {requirement_path}.
 
-Wait for completion before proceeding.
-
-### Step 2: Create Threat Model
-
-Use the prompt at .github/prompts/create-threat-model.prompt.md for {requirement_path} with scope: {per-requirement | high-level-aggregate | grouped-by-feature}.
+**Output**: `docs/specifications/spec_{req-name}.md`
 
 Wait for completion before proceeding.
 
-### Step 3: Create Architecture Diagram
+### Step 2: Create Architecture Diagram
 
 Use the prompt at .github/prompts/create-architecture-diagram.prompt.md for the specification you just created.
+
+**Important**: Architecture diagrams are created FROM the specification, showing the technical design.
+
+**Output**: `docs/diagrams/architecture_{spec-name}.md`
+
+Wait for completion before proceeding.
+
+### Step 3: Create Threat Model
+
+Use the prompt at .github/prompts/create-threat-model.prompt.md for the SPECIFICATION (not requirement) with scope: {per-specification | high-level-aggregate | grouped-by-feature}.
+
+**Important**: Threat modeling requires the specification and architecture diagram to identify security risks based on actual system design, data flows, and integrations.
+
+**Output**: `docs/diagrams/threat-model_{name}.md`
 
 Wait for completion before proceeding.
 
@@ -115,10 +125,10 @@ If you prefer to execute each step individually:
 Use generate-spec-from-requirement prompt for docs/requirements/req-user-auth.md
 
 # Step 2 (after Step 1 completes)
-Use create-threat-model prompt for docs/requirements/req-user-auth.md with scope per-requirement
+Use create-architecture-diagram prompt for docs/specifications/spec_user-auth.md
 
 # Step 3 (after Step 2 completes)
-Use create-architecture-diagram prompt for docs/specifications/spec_user-auth.md
+Use create-threat-model prompt for docs/specifications/spec_user-auth.md with scope per-specification
 
 # Step 4 (after Step 3 completes)
 Conduct specification quality review using quality-checklists.md

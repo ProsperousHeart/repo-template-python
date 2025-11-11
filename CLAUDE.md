@@ -35,11 +35,13 @@ This is a Python project template designed for specification-driven development 
 This project follows a structured specification-driven workflow:
 
 1. **Requirements**: Define what to build using `docs/templates/requirements-template.md`
-2. **Specifications**: Generate detailed specs from requirements
-3. **Threat Modeling**: Identify security risks (see `.github/instructions/threat-modeling.instructions.md`)
-4. **Architecture**: Create diagrams (see `.github/instructions/architecture-diagrams.instructions.md`)
+2. **Specifications**: Generate detailed specs from requirements with architecture decisions
+3. **Architecture Diagrams**: Create visual diagrams based on specifications (see `.github/instructions/architecture-diagrams.instructions.md`)
+4. **Threat Modeling**: Identify security risks based on specifications and architecture (see `.github/instructions/threat-modeling.instructions.md`)
 5. **TDD Implementation**: Write tests first, then code (see `.github/instructions/tdd-workflow.instructions.md`)
 6. **Quality Review**: Validate against checklists (see `.github/instructions/quality-checklists.md`)
+
+**Note**: Threat modeling comes AFTER specifications because you need to know the system architecture, data flows, and integrations before identifying threats.
 
 See `.github/instructions/master-workflow.md` for complete details.
 
@@ -49,7 +51,7 @@ Use orchestration prompts to automate multi-step workflows:
 
 - **Requirements → Specification**: Execute `.github/prompts/workflow-requirements-to-spec.prompt.md`
 
-  - Generates spec, threat model, architecture diagram, runs quality review
+  - Generates spec, architecture diagram, threat model (in correct order), runs quality review
   - Usage: `Execute the workflow-requirements-to-spec prompt for docs/requirements/req-{name}.md`
 
 - **Specification → Code**: Execute `.github/prompts/workflow-spec-to-code.prompt.md`
@@ -218,8 +220,14 @@ docs/
 
 - Requirements are created using `docs/templates/requirements-template.md`
 - Specifications are generated from requirements using `/make-spec-from-req`
-- All diagrams use Mermaid syntax embedded in markdown
+- **All diagrams MUST include three formats**: Text description, ASCII diagram, and Mermaid code (collapsible)
 - Cross-references are tracked in `SPEC-CROSS-REFERENCE.md`
+
+**Diagram Format Requirements:**
+- Text descriptions for accessibility
+- ASCII diagrams for portability (work everywhere)
+- Mermaid diagrams for visual rendering
+- See `.github/instructions/architecture-diagrams.instructions.md` for format details
 
 **Key Documentation:**
 

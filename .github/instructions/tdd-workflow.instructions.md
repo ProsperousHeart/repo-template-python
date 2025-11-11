@@ -8,12 +8,70 @@ This document outlines the Test-Driven Development workflow using the RED-GREEN-
 
 Test-Driven Development follows a simple but powerful cycle:
 
+### The TDD Cycle
+
+The TDD cycle is a continuous loop of three phases that ensures code quality through iterative testing and refinement.
+
+#### Text Description: TDD Cycle
+
+The TDD workflow follows a repeating three-step cycle:
+
+1. **🔴 RED** - Write a failing test that defines the desired behavior
+2. **🟢 GREEN** - Write minimal code to make the test pass
+3. **🔵 REFACTOR** - Improve the code while keeping tests passing
+
+After refactoring, return to step 1 for the next feature or improvement.
+
+#### Mermaid Diagram: TDD Cycle
+
+<details>
+<summary>📊 View Mermaid Diagram Code</summary>
+
 ```mermaid
 graph LR
     A[RED: Write Failing Test] --> B[GREEN: Make It Pass]
     B --> C[REFACTOR: Improve Code]
     C --> A
 ```
+
+</details>
+
+#### ASCII Diagram: TDD Cycle
+
+```
+                    ┌─────────────────────────────────┐
+                    │                                 │
+                    ↓                                 │
+          ┌──────────────────────┐                    │
+          │   🔴 RED PHASE       │                   │
+          │  Write Failing Test  │                    │
+          └──────────────────────┘                    │
+                    │                                 │
+                    ↓                                 │
+          ┌──────────────────────┐                    │
+          │  🟢 GREEN PHASE      │                   │
+          │  Make Test Pass      │                    │
+          └──────────────────────┘                    │
+                    │                                 │
+                    ↓                                 │
+          ┌──────────────────────┐                    │
+          │  🔵 REFACTOR PHASE   │                   │
+          │  Improve Code        │                    │
+          └──────────────────────┘                    │
+                    │                                 │
+                    └─────────────────────────────────┘
+                           (Repeat for next feature)
+```
+
+#### Detailed Explanation
+
+The TDD cycle is circular and continuous:
+- **RED phase**: Before writing any implementation, write a test that fails because the functionality doesn't exist yet
+- **GREEN phase**: Write just enough production code to make the test pass - no more, no less
+- **REFACTOR phase**: With passing tests as a safety net, improve code quality through better naming, removing duplication, and enhancing design
+- **Loop back**: Once refactoring is complete, start the cycle again for the next piece of functionality
+
+This cycle ensures that every line of code is covered by tests and that the codebase continuously improves.
 
 ### Why TDD?
 
